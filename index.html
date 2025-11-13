@@ -5,35 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GHOST.JOKI — Mobile Legends Only</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrap">
+    <!-- HEADER -->
     <header class="hero box">
       <div class="badge">💎 GHOST.JOKI</div>
       <h1>Daftar Harga Joki <span>Mobile Legends</span></h1>
       <p class="sub">Naik Rank, Bukan Naik Emosi</p>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="grid">
-      <!-- FORM -->
-      <section class="box col">
+      <!-- KOLOM KIRI: FORM + PEMBAYARAN -->
+      <section class="box">
         <h2>📝 Order Joki</h2>
 
         <label>ID / Email Akun Moonton</label>
         <input id="moontonId" placeholder="contoh: email / ID MLBB" />
 
         <label>Password Akun Moonton</label>
-        <div class="password-row">
-          <input id="moontonPass" type="password" placeholder="•••••••" />
-          <button type="button" id="togglePass" class="toggle-pass" aria-label="Tampilkan / sembunyikan password">
-            👁
-          </button>
-        </div>
+        <!-- kalau JS kamu sudah ada togglePass, bisa pakai div ini -->
+        <input id="moontonPass" type="password" placeholder="•••••••" />
 
         <label>Rank Sekarang</label>
         <select id="fromRank"></select>
@@ -50,22 +50,18 @@
           ⏱️ Estimasi waktu: <b id="eta">-</b>
         </div>
 
-        <!-- BOX PEMBAYARAN -->
-        <div class="pay-box">
-         <h3>💰 Metode Pembayaran</h3>
-<ul class="payment-list">
-  <li><span class="left">GoPay</span> <span class="right">: 0895365386976</span></li>
-  <li><span class="left">ShopeePay</span> <span class="right">: 0895365386976</span></li>
-  <li><span class="left">OVO</span> <span class="right">: 0895365386976</span></li>
-</ul>
+        <!-- METODE PEMBAYARAN -->
+        <div class="payment-box">
+          <h3>💰 Metode Pembayaran</h3>
+          <ul class="payment-list">
+            <li><span class="left">GoPay</span>     <span class="right">: 08924</span></li>
+            <li><span class="left">ShopeePay</span> <span class="right">: 09090</span></li>
+            <li><span class="left">OVO</span>       <span class="right">: 1735173</span></li>
+          </ul>
 
-<p class="tiny">
-  🧾 Konfirmasi pembayaran / progress:
-  <b>0813-9876-5432</b> (WhatsApp Admin)
-</p>
-
-          <p class="tiny contact">
-            📱 Konfirmasi pembayaran / progress: <b>0813-9876-5432 (WhatsApp Admin)</b>
+          <p class="admin-contact">
+            🧾 Konfirmasi pembayaran / progress:
+            <b>0813-9876-5432</b> (WhatsApp Admin)
           </p>
         </div>
 
@@ -73,31 +69,28 @@
         <p id="statusMsg" class="tiny" style="text-align:center; margin-top:10px;"></p>
       </section>
 
-      <!-- INFO HARGA + HERO -->
-      <aside class="box col">
+      <!-- KOLOM KANAN: INFO HARGA + HERO -->
+      <aside class="box">
         <h2>📊 Info Harga per Bintang</h2>
         <ul class="legend" id="legendList"></ul>
 
         <p class="tiny warn">⚠️ Harga final dikonfirmasi admin.</p>
         <p class="tiny">List dari Master V★1 hingga Mythic Immortal ★100+</p>
 
-        <!-- GALERI HERO -->
-        <div class="hero-gallery">
-          <!-- pastikan nama file sama dengan yang kamu simpan di folder img/ -->
-          <img src="beatrix.png" alt="Beatrix" />
-          <img src="harith.png" alt="Harith" />
-          <img src="ling.png" alt="Ling" />
-          <img src="nana.png" alt="Nana" />
-        </div>
+        <!-- Gambar hero (sesuaikan path & nama file) -->
+        <img src="img/nana.png" alt="Hero Mobile Legends" class="hero-img">
       </aside>
     </main>
 
+    <!-- FOOTER -->
     <footer class="foot">
       © <span id="year"></span> GHOST.JOKI — Managed by Anak-Anak MITI
     </footer>
   </div>
 
+  <!-- JS -->
   <script src="app.js"></script>
 </body>
 </html>
+
 
