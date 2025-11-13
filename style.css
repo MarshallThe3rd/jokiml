@@ -1,3 +1,6 @@
+/* =======================
+   THEME VARIABLES
+   ======================= */
 :root{
   --bg:#0b0f17;
   --card:#0f172a;
@@ -8,21 +11,26 @@
   --accent2:#f59e0b;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 html,body{
-  margin:0;
   background:var(--bg);
   color:var(--txt);
   font-family:Inter,system-ui,Arial;
 }
 
+/* WRAPPER */
 .wrap{
-  max-width:880px;
+  max-width:900px;
   margin:0 auto;
   padding:20px;
 }
 
+/* BOX CARD */
 .box{
   background:var(--card);
   border:1px solid var(--line);
@@ -30,9 +38,19 @@ html,body{
   padding:16px;
 }
 
-/* Header */
-.hero{text-align:center;margin-bottom:16px}
-.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:700}
+/* HEADER */
+.hero{
+  text-align:center;
+  margin-bottom:16px;
+}
+
+.badge{
+  display:inline-block;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 12px;
+  font-weight:700;
+}
 
 h1{
   font-family:"Bebas Neue";
@@ -47,9 +65,11 @@ h1 span{
   color:transparent;
 }
 
-.sub{color:var(--muted)}
+.sub{
+  color:var(--muted);
+}
 
-/* Layout */
+/* GRID LAYOUT */
 .grid{
   display:grid;
   grid-template-columns:1fr;
@@ -57,11 +77,18 @@ h1 span{
 }
 
 @media(min-width:760px){
-  .grid{grid-template-columns:1fr 1fr}
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
-/* Form */
-label{display:block;margin:10px 0 6px;color:#cbd5e1;font-size:14px}
+/* FORM ELEMENTS */
+label{
+  display:block;
+  margin:10px 0 6px;
+  color:#cbd5e1;
+  font-size:14px;
+}
 
 input,select{
   width:100%;
@@ -70,29 +97,19 @@ input,select{
   border:1px solid var(--line);
   border-radius:12px;
   padding:10px;
+  font-size:14px;
 }
 
-/* password toggle */
-.password-row{
-  display:flex;
-  gap:8px;
-  align-items:center;
+/* KALKULASI */
+.calc{
+  margin-top:12px;
+  border:1px dashed var(--line);
+  padding:10px;
+  border-radius:12px;
+  font-size:14px;
 }
 
-.password-row input{
-  flex:1;
-}
-
-.toggle-pass{
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:#020617;
-  color:#e5e7eb;
-  padding:0 12px;
-  cursor:pointer;
-}
-
-/* tombol kirim */
+/* BUTTON */
 .btn{
   margin-top:12px;
   width:100%;
@@ -102,48 +119,7 @@ input,select{
   color:#0b0f17;
   font-weight:800;
   cursor:pointer;
-  border:none;
-}
-
-.calc{
-  margin-top:12px;
-  border:1px dashed var(--line);
-  padding:10px;
-  border-radius:12px;
-}
-
-/* BOX PEMBAYARAN */
-.pay-box{
-  margin-top:12px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  padding:12px;
-  background:#020617;
-}
-
-.pay-title{
-  margin:0 0 6px;
-  font-size:14px;
-}
-
-.pay-list{
-  list-style:none;
-  margin:0;
-  padding:0 0 4px;
-  font-size:13px;
-}
-
-.pay-list li{
-  margin:3px 0;
-}
-
-.pay-number{
-  font-weight:600;
-}
-
-.contact{
-  margin-top:4px;
-  font-size:12px;
+  border: none;
 }
 
 /* LIST HARGA */
@@ -165,7 +141,7 @@ input,select{
 }
 
 .legend li .left{
-  width:150px;
+  width:150px; /* biar titik dua sejajar */
   display:inline-block;
 }
 
@@ -174,45 +150,84 @@ input,select{
   color:#e5e7eb;
 }
 
-/* ==========================
-   HERO GALLERY + FLOAT ANIMATION
-   ========================== */
-.hero-gallery{
-  margin-top:14px;
-  padding-top:10px;
-  border-top:1px solid var(--line);
+/* METODE PEMBAYARAN */
+.payment-box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+  margin-top:16px;
+}
 
+.payment-box h3{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.payment-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  font-size:14px;
+}
+
+.payment-list li{
   display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
+  align-items:center;
+  margin:4px 0;
 }
 
-.hero-gallery img{
-  width:200px;             /* ubah ini kalau mau lebih kecil/besar */
-  height:auto;
-  object-fit:contain;
-  filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
-  animation: float 3s ease-in-out infinite alternate;
+.payment-list .left{
+  width:120px;
+  font-weight:600;
+  color:#e5e7eb;
 }
 
-/* kasih delay beda-beda biar nggak kompak geraknya */
-.hero-gallery img:nth-child(2){
-  animation-delay: .4s;
-}
-.hero-gallery img:nth-child(3){
-  animation-delay: .8s;
-}
-.hero-gallery img:nth-child(4){
-  animation-delay: 1.2s;
+.payment-list .right{
+  color:#fff;
 }
 
-/* keyframes floating */
-@keyframes float{
-  from{
-    transform: translateY(0);
-  }
-  to{
-    transform: translateY(-10px);
-  }
+.admin-contact{
+  margin-top:12px;
+  font-size:13px;
+  color:#cbd5e1;
 }
+
+.admin-contact b{
+  color:var(--accent2);
+}
+
+/* FOOTER */
+.tiny{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.warn{
+  color:#fca5a5;
+}
+
+.foot{
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:20px;
+}
+
+/* GAMBAR SKIN HERO */
+.hero-img{
+  width:100%;
+  max-width:300px;
+  display:block;
+  margin:20px auto 0;
+  animation:floating 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes floating{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
+  100%{ transform:translateY(0); }
+}
+
