@@ -2,14 +2,14 @@
 //  DATA HARGA PER BINTANG
 // =======================
 const GROUP_PRICE = {
-  "Master": 500,
-  "Grandmaster": 1000,
-  "Epic": 1500,
-  "Legend": 2000,
-  "Mythic": 2500,
+  Master: 500,
+  Grandmaster: 1000,
+  Epic: 1500,
+  Legend: 2000,
+  Mythic: 2500,
   "Mythic Honor": 3000,
   "Mythic Glory": 3500,
-  "Mythic Immortal": 4000
+  "Mythic Immortal": 4000,
 };
 
 const DIVS = ["V", "IV", "III", "II", "I"];
@@ -21,12 +21,12 @@ const ETA_PER_STAR_HOUR = 0.25; // 15 menit per bintang
 function buildRankSteps() {
   const steps = [];
 
-  ["Master", "Grandmaster", "Epic", "Legend"].forEach(group => {
-    DIVS.forEach(div => {
+  ["Master", "Grandmaster", "Epic", "Legend"].forEach((group) => {
+    DIVS.forEach((div) => {
       for (let star = 1; star <= 5; star++) {
         steps.push({
           label: `${group} ${div} ★${star}`,
-          group
+          group,
         });
       }
     });
@@ -56,20 +56,21 @@ const RANK_STEPS = buildRankSteps();
 // =======================
 //  DOM ELEMENTS
 // =======================
-const moontonId   = document.getElementById("moontonId");
+const moontonId = document.getElementById("moontonId");
 const moontonPass = document.getElementById("moontonPass");
-const fromRank    = document.getElementById("fromRank");
-const toRank      = document.getElementById("toRank");
-const priceEl     = document.getElementById("price");
-const etaEl       = document.getElementById("eta");
-const noteEl      = document.getElementById("note");
-const legendEl    = document.getElementById("legendList");
-const sendBtn     = document.getElementById("sendBtn");
-const statusMsg   = document.getElementById("statusMsg");
+const fromRank = document.getElementById("fromRank");
+const toRank = document.getElementById("toRank");
+const priceEl = document.getElementById("price");
+const etaEl = document.getElementById("eta");
+const noteEl = document.getElementById("note");
+const legendEl = document.getElementById("legendList");
+const sendBtn = document.getElementById("sendBtn");
+const statusMsg = document.getElementById("statusMsg");
 const togglePassBtn = document.getElementById("togglePass");
 
-// URL API 
-const API_URL = "https://script.google.com/macros/s/AKfycbznzFvWLxdtZh81CLDC3SI5tWS10QMWr6ZqtiNjf8zJQOJQMgW5ycjE1VlJPRqQbtSf3Q/exec";
+// URL API (punyamu sendiri)
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbznzFvWLxdtZh81CLDC3SI5tWS10QMWr6ZqtiNjf8zJQOJQMgW5ycjE1VlJPRqQbtSf3Q/exec";
 
 // =======================
 //  HELPER
@@ -79,7 +80,7 @@ function format(n) {
 }
 
 function findIndex(label) {
-  return RANK_STEPS.findIndex(s => s.label === label);
+  return RANK_STEPS.findIndex((s) => s.label === label);
 }
 
 // =======================
@@ -87,11 +88,11 @@ function findIndex(label) {
 // =======================
 function calc() {
   const iFrom = findIndex(fromRank.value);
-  const iTo   = findIndex(toRank.value);
+  const iTo = findIndex(toRank.value);
 
   if (iFrom === -1 || iTo === -1 || iTo <= iFrom) {
     priceEl.textContent = "Rp0";
-    etaEl.textContent   = "-";
+    etaEl.textContent = "-";
     return { total: 0, steps: 0 };
   }
 
@@ -99,7 +100,7 @@ function calc() {
   let steps = 0;
 
   for (let i = iFrom; i < iTo; i++) {
-    const group   = RANK_STEPS[i].group;
+    const group = RANK_STEPS[i].group;
     const perStar = GROUP_PRICE[group] || 0;
     total += perStar;
     steps++;
@@ -122,34 +123,49 @@ function calc() {
 //  INIT DROPDOWN & LEGEND
 // =======================
 function initSelects() {
-  const opts = RANK_STEPS.map(s => `<option>${s.label}</option>`).join("");
+  const opts = RANK_STEPS.map((s) => `<option>${s.label}</option>`).join("");
   fromRank.innerHTML = opts;
-  toRank.innerHTML   = opts;
+  toRank.innerHTML = opts;
 
   fromRank.selectedIndex = 0;
-  toRank.selectedIndex   = RANK_STEPS.length - 1;
+  toRank.selectedIndex = RANK_STEPS.length - 1;
 
   calc();
 }
 
 function renderLegend() {
   legendEl.innerHTML = `
-    <li><span class="left">Master</span><span class="right">Rp${format(GROUP_PRICE.Master)}</span></li>
-    <li><span class="left">Grandmaster</span><span class="right">Rp${format(GROUP_PRICE.Grandmaster)}</span></li>
-    <li><span class="left">Epic</span><span class="right">Rp${format(GROUP_PRICE.Epic)}</span></li>
-    <li><span class="left">Legend</span><span class="right">Rp${format(GROUP_PRICE.Legend)}</span></li>
-    <li><span class="left">Mythic</span><span class="right">Rp${format(GROUP_PRICE.Mythic)}</span></li>
-    <li><span class="left">Mythic Honor</span><span class="right">Rp${format(GROUP_PRICE["Mythic Honor"])}</span></li>
-    <li><span class="left">Mythic Glory</span><span class="right">Rp${format(GROUP_PRICE["Mythic Glory"])}</span></li>
-    <li><span class="left">Mythic Immortal</span><span class="right">Rp${format(GROUP_PRICE["Mythic Immortal"])}</span></li>
+    <li><span class="left">Master</span><span class="right">Rp${format(
+      GROUP_PRICE.Master
+    )}</span></li>
+    <li><span class="left">Grandmaster</span><span class="right">Rp${format(
+      GROUP_PRICE.Grandmaster
+    )}</span></li>
+    <li><span class="left">Epic</span><span class="right">Rp${format(
+      GROUP_PRICE.Epic
+    )}</span></li>
+    <li><span class="left">Legend</span><span class="right">Rp${format(
+      GROUP_PRICE.Legend
+    )}</span></li>
+    <li><span class="left">Mythic</span><span class="right">Rp${format(
+      GROUP_PRICE.Mythic
+    )}</span></li>
+    <li><span class="left">Mythic Honor</span><span class="right">Rp${format(
+      GROUP_PRICE["Mythic Honor"]
+    )}</span></li>
+    <li><span class="left">Mythic Glory</span><span class="right">Rp${format(
+      GROUP_PRICE["Mythic Glory"]
+    )}</span></li>
+    <li><span class="left">Mythic Immortal</span><span class="right">Rp${format(
+      GROUP_PRICE["Mythic Immortal"]
+    )}</span></li>
   `;
 }
 
 // =======================
-//  KIRIM KE GOOGLE SHEETS (Apps Script)
+//  KIRIM KE GOOGLE SHEETS
 // =======================
 async function sendToDatabase() {
-  // hitung dulu & pastikan rank tidak turun
   const { total, steps } = calc();
 
   if (!moontonId.value.trim() || !moontonPass.value.trim()) {
@@ -159,34 +175,33 @@ async function sendToDatabase() {
   }
 
   if (steps === 0) {
-    statusMsg.textContent = "Target rank harus lebih tinggi dari rank sekarang.";
+    statusMsg.textContent =
+      "Target rank harus lebih tinggi dari rank sekarang.";
     statusMsg.style.color = "#f87171";
     return;
   }
 
   const payload = {
-    moontonId   : moontonId.value,
-    moontonPass : moontonPass.value,
-    fromRank    : fromRank.value,
-    toRank      : toRank.value,
-    price       : total,
-    note        : noteEl.value,
-    timestamp   : new Date().toISOString()
+    moontonId: moontonId.value,
+    moontonPass: moontonPass.value,
+    fromRank: fromRank.value,
+    toRank: toRank.value,
+    price: total,
+    note: noteEl.value,
+    timestamp: new Date().toISOString(),
   };
 
   statusMsg.textContent = "Mengirim...";
   statusMsg.style.color = "#fbbf24";
 
   try {
-    // kalau di GitHub Pages dan kena CORS, kamu bisa tambahkan mode: "no-cors" di sini
-    const res = await fetch(API_URL, {
+    await fetch(API_URL, {
       method: "POST",
-      body: JSON.stringify(payload)
+      mode: "no-cors", // biar nggak kena CORS di GitHub Pages
+      body: JSON.stringify(payload),
     });
 
-    if (!res.ok) throw new Error("Response bukan 200");
-
-    statusMsg.textContent = "✔️ Berhasil dikirim!";
+    statusMsg.textContent = "✔️ Berhasil dikirim! (cek Google Sheet)";
     statusMsg.style.color = "#4ade80";
   } catch (err) {
     console.error(err);
@@ -198,23 +213,23 @@ async function sendToDatabase() {
 // =======================
 //  EVENT LISTENER & INIT
 // =======================
+[fromRank, toRank].forEach((el) => el.addEventListener("input", calc));
 
-// update estimasi saat rank diganti
-[fromRank, toRank].forEach(el => el.addEventListener("input", calc));
-
-// tombol kirim
 sendBtn.addEventListener("click", sendToDatabase);
 
-// show / hide password
-togglePassBtn.addEventListener("click", () => {
-  const isPw = moontonPass.type === "password";
-  moontonPass.type = isPw ? "text" : "password";
-  togglePassBtn.textContent = isPw ? "🙈" : "👁";
-});
+// show / hide password (aman kalau tombolnya ada)
+if (togglePassBtn) {
+  togglePassBtn.addEventListener("click", () => {
+    const isPw = moontonPass.type === "password";
+    moontonPass.type = isPw ? "text" : "password";
+    togglePassBtn.textContent = isPw ? "🙈" : "👁";
+  });
+}
 
 initSelects();
 renderLegend();
 document.getElementById("year").textContent = new Date().getFullYear();
+
 
 
 
