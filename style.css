@@ -248,7 +248,7 @@ input,select{
 }
 
 .hero-gallery img{
-  width:110px;
+  width:100px;
   height:auto;
   object-fit:contain;
   filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
