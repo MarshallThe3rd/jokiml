@@ -175,7 +175,7 @@ input,select{
 }
 
 /* ==========================
-   HERO GALLERY (perbaikan ukuran)
+   HERO GALLERY + FLOAT ANIMATION
    ========================== */
 .hero-gallery{
   margin-top:14px;
@@ -189,20 +189,30 @@ input,select{
 }
 
 .hero-gallery img{
-  width:20px;             /* <<< atur ukuran di sini  */
+  width:110px;             /* ubah ini kalau mau lebih kecil/besar */
   height:auto;
   object-fit:contain;
   filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
-  transition:0.2s ease-in-out;
+  animation: float 3s ease-in-out infinite alternate;
 }
 
-.hero-gallery img:hover{
-  transform:scale(1.07);
+/* kasih delay beda-beda biar nggak kompak geraknya */
+.hero-gallery img:nth-child(2){
+  animation-delay: .4s;
+}
+.hero-gallery img:nth-child(3){
+  animation-delay: .8s;
+}
+.hero-gallery img:nth-child(4){
+  animation-delay: 1.2s;
 }
 
-/* Footer */
-.tiny{font-size:12px;color:var(--muted)}
-.warn{color:#fca5a5}
-.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
-
-
+/* keyframes floating */
+@keyframes float{
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(-10px);
+  }
+}
