@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GHOST.JOKI — Mobile Legends Only</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero box">
+      <div class="badge">💎 GHOST.JOKI</div>
+      <h1>Daftar Harga Joki <span>Mobile Legends</span></h1>
+      <p class="sub">Naik Rank, Bukan Naik Emosi</p>
+    </header>
+
+    <main class="grid">
+      <!-- FORM -->
+      <section class="box col">
+        <h2>📝 Order Joki</h2>
+
+        <label>ID / Email Akun Moonton</label>
+        <input id="moontonId" placeholder="contoh: email / ID MLBB" />
+
+        <label>Password Akun Moonton</label>
+        <input id="moontonPass" type="password" placeholder="•••••••" />
+
+        <label>Rank Sekarang</label>
+        <select id="fromRank"></select>
+
+        <label>Target Rank</label>
+        <select id="toRank"></select>
+
+        <label>Catatan (opsional)</label>
+        <input id="note" placeholder="req hero" />
+
+        <div class="calc">
+          💸 Estimasi: <b id="price">Rp0</b>
+          &nbsp; | &nbsp;
+          ⏱️ Estimasi waktu: <b id="eta">-</b>
+        </div>
+
+        <button id="sendBtn" class="btn">📨 KIRIM</button>
+        <p id="statusMsg" class="tiny" style="text-align:center; margin-top:10px;"></p>
+      </section>
+
+      <!-- INFO HARGA -->
+      <aside class="box col">
+        <h2>📊 Info Harga per Bintang</h2>
+        <ul class="legend" id="legendList"></ul>
+
+        <p class="tiny warn">⚠️ Harga final dikonfirmasi admin.</p>
+        <p class="tiny">List dari Master V★1 hingga Mythic Immortal ★100+</p>
+      </aside>
+    </main>
+
+    <footer class="foot">
+      © <span id="year"></span> GHOST.JOKI — Managed by Anak-Anak MITI
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
