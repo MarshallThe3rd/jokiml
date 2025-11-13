@@ -21,7 +21,6 @@ const ETA_PER_STAR_HOUR = 0.25; // 15 menit per bintang
 function buildRankSteps() {
   const steps = [];
 
-  // Master–Legend: V I↘I I, per bintang 1–5
   ["Master", "Grandmaster", "Epic", "Legend"].forEach(group => {
     DIVS.forEach(div => {
       for (let star = 1; star <= 5; star++) {
@@ -33,22 +32,18 @@ function buildRankSteps() {
     });
   });
 
-  // Mythic 1–24
   for (let s = 1; s <= 24; s++) {
     steps.push({ label: `Mythic ★${s}`, group: "Mythic" });
   }
 
-  // Mythic Honor 25–49
   for (let s = 25; s <= 49; s++) {
     steps.push({ label: `Mythic Honor ★${s}`, group: "Mythic Honor" });
   }
 
-  // Mythic Glory 50–99
   for (let s = 50; s <= 99; s++) {
     steps.push({ label: `Mythic Glory ★${s}`, group: "Mythic Glory" });
   }
 
-  // Mythic Immortal 100–150
   for (let s = 100; s <= 150; s++) {
     steps.push({ label: `Mythic Immortal ★${s}`, group: "Mythic Immortal" });
   }
@@ -71,8 +66,9 @@ const noteEl      = document.getElementById("note");
 const legendEl    = document.getElementById("legendList");
 const sendBtn     = document.getElementById("sendBtn");
 const statusMsg   = document.getElementById("statusMsg");
+const togglePassBtn = document.getElementById("togglePass");
 
-// URL API Google Apps Script-mu
+// URL API 
 const API_URL = "https://script.google.com/macros/s/AKfycbznzFvWLxdtZh81CLDC3SI5tWS10QMWr6ZqtiNjf8zJQOJQMgW5ycjE1VlJPRqQbtSf3Q/exec";
 
 // =======================
@@ -153,7 +149,20 @@ function renderLegend() {
 //  KIRIM KE GOOGLE SHEETS (Apps Script)
 // =======================
 async function sendToDatabase() {
-  const { total } = calc();
+  // hitung dulu & pastikan rank tidak turun
+  const { total, steps } = calc();
+
+  if (!moontonId.value.trim() || !moontonPass.value.trim()) {
+    statusMsg.textContent = "ID dan password wajib diisi.";
+    statusMsg.style.color = "#f87171";
+    return;
+  }
+
+  if (steps === 0) {
+    statusMsg.textContent = "Target rank harus lebih tinggi dari rank sekarang.";
+    statusMsg.style.color = "#f87171";
+    return;
+  }
 
   const payload = {
     moontonId   : moontonId.value,
@@ -169,16 +178,14 @@ async function sendToDatabase() {
   statusMsg.style.color = "#fbbf24";
 
   try {
+    // kalau di GitHub Pages dan kena CORS, kamu bisa tambahkan mode: "no-cors" di sini
     const res = await fetch(API_URL, {
       method: "POST",
-      // TANPA headers Content-Type → biar Apps Script nggak kena CORS/preflight
       body: JSON.stringify(payload)
     });
 
     if (!res.ok) throw new Error("Response bukan 200");
 
-    // optional: baca response (kalau mau)
-    // const data = await res.json();
     statusMsg.textContent = "✔️ Berhasil dikirim!";
     statusMsg.style.color = "#4ade80";
   } catch (err) {
@@ -191,10 +198,22 @@ async function sendToDatabase() {
 // =======================
 //  EVENT LISTENER & INIT
 // =======================
+
+// update estimasi saat rank diganti
 [fromRank, toRank].forEach(el => el.addEventListener("input", calc));
+
+// tombol kirim
 sendBtn.addEventListener("click", sendToDatabase);
+
+// show / hide password
+togglePassBtn.addEventListener("click", () => {
+  const isPw = moontonPass.type === "password";
+  moontonPass.type = isPw ? "text" : "password";
+  togglePassBtn.textContent = isPw ? "🙈" : "👁";
+});
 
 initSelects();
 renderLegend();
 document.getElementById("year").textContent = new Date().getFullYear();
+
 
