@@ -218,7 +218,7 @@ input,select{
 /* GAMBAR SKIN HERO */
 .hero-img{
   width:100%;
-  max-width:300px;
+  max-width:100px;
   display:block;
   margin:20px auto 0;
   animation:floating 3s ease-in-out infinite;
