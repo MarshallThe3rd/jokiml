@@ -28,7 +28,12 @@
         <input id="moontonId" placeholder="contoh: email / ID MLBB" />
 
         <label>Password Akun Moonton</label>
-        <input id="moontonPass" type="password" placeholder="•••••••" />
+        <div class="password-row">
+          <input id="moontonPass" type="password" placeholder="•••••••" />
+          <button type="button" id="togglePass" class="toggle-pass" aria-label="Tampilkan / sembunyikan password">
+            👁
+          </button>
+        </div>
 
         <label>Rank Sekarang</label>
         <select id="fromRank"></select>
@@ -37,7 +42,7 @@
         <select id="toRank"></select>
 
         <label>Catatan (opsional)</label>
-        <input id="note" placeholder="req hero" />
+        <input id="note" placeholder="req hero / jam main, dll" />
 
         <div class="calc">
           💸 Estimasi: <b id="price">Rp0</b>
@@ -45,17 +50,39 @@
           ⏱️ Estimasi waktu: <b id="eta">-</b>
         </div>
 
+        <!-- BOX PEMBAYARAN -->
+        <div class="pay-box">
+          <h3 class="pay-title">💰 Metode Pembayaran</h3>
+          <ul class="pay-list">
+            <li>GoPay&nbsp;&nbsp;&nbsp;&nbsp;: <span class="pay-number">0812-3456-7890</span></li>
+            <li>OVO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="pay-number">0812-3456-7890</span></li>
+            <li>ShopeePay: <span class="pay-number">0812-3456-7890</span></li>
+          </ul>
+          <p class="tiny contact">
+            📱 Konfirmasi pembayaran / progress: <b>0813-9876-5432 (WhatsApp Admin)</b>
+          </p>
+        </div>
+
         <button id="sendBtn" class="btn">📨 KIRIM</button>
         <p id="statusMsg" class="tiny" style="text-align:center; margin-top:10px;"></p>
       </section>
 
-      <!-- INFO HARGA -->
+      <!-- INFO HARGA + HERO -->
       <aside class="box col">
         <h2>📊 Info Harga per Bintang</h2>
         <ul class="legend" id="legendList"></ul>
 
         <p class="tiny warn">⚠️ Harga final dikonfirmasi admin.</p>
         <p class="tiny">List dari Master V★1 hingga Mythic Immortal ★100+</p>
+
+        <!-- GALERI HERO -->
+        <div class="hero-gallery">
+          <!-- pastikan nama file sama dengan yang kamu simpan di folder img/ -->
+          <img src="beatrix.png" alt="Beatrix" />
+          <img src="harith.png" alt="Harith" />
+          <img src="ling.png" alt="Ling" />
+          <img src="nana.png" alt="Nana" />
+        </div>
       </aside>
     </main>
 
@@ -67,3 +94,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+
