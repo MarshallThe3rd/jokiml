@@ -1,6 +1,3 @@
-/* =======================
-   THEME VARIABLES
-   ======================= */
 :root{
   --bg:#0b0f17;
   --card:#0f172a;
@@ -11,26 +8,21 @@
   --accent2:#f59e0b;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box}
 
 html,body{
+  margin:0;
   background:var(--bg);
   color:var(--txt);
   font-family:Inter,system-ui,Arial;
 }
 
-/* WRAPPER */
 .wrap{
-  max-width:900px;
+  max-width:880px;
   margin:0 auto;
   padding:20px;
 }
 
-/* BOX CARD */
 .box{
   background:var(--card);
   border:1px solid var(--line);
@@ -38,19 +30,9 @@ html,body{
   padding:16px;
 }
 
-/* HEADER */
-.hero{
-  text-align:center;
-  margin-bottom:16px;
-}
-
-.badge{
-  display:inline-block;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:6px 12px;
-  font-weight:700;
-}
+/* Header */
+.hero{text-align:center;margin-bottom:16px}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:700}
 
 h1{
   font-family:"Bebas Neue";
@@ -65,30 +47,14 @@ h1 span{
   color:transparent;
 }
 
-.sub{
-  color:var(--muted);
-}
+.sub{color:var(--muted)}
 
-/* GRID LAYOUT */
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
+/* Layout */
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
 
-@media(min-width:760px){
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-/* FORM ELEMENTS */
-label{
-  display:block;
-  margin:10px 0 6px;
-  color:#cbd5e1;
-  font-size:14px;
-}
+/* Form */
+label{display:block;margin:10px 0 6px;color:#cbd5e1;font-size:14px}
 
 input,select{
   width:100%;
@@ -97,19 +63,29 @@ input,select{
   border:1px solid var(--line);
   border-radius:12px;
   padding:10px;
-  font-size:14px;
 }
 
-/* KALKULASI */
-.calc{
-  margin-top:12px;
-  border:1px dashed var(--line);
-  padding:10px;
-  border-radius:12px;
-  font-size:14px;
+/* password show / hide */
+.password-row{
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
 
-/* BUTTON */
+.password-row input{
+  flex:1;
+}
+
+.toggle-pass{
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#020617;
+  color:#e5e7eb;
+  padding:0 12px;
+  cursor:pointer;
+}
+
+/* tombol kirim */
 .btn{
   margin-top:12px;
   width:100%;
@@ -119,10 +95,50 @@ input,select{
   color:#0b0f17;
   font-weight:800;
   cursor:pointer;
-  border: none;
+  border:none;
 }
 
-/* LIST HARGA */
+.calc{
+  margin-top:12px;
+  border:1px dashed var(--line);
+  padding:10px;
+  border-radius:12px;
+}
+
+/* BOX PEMBAYARAN */
+.pay-box{
+  margin-top:12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  padding:10px;
+  background:#020617;
+}
+
+.pay-title{
+  margin:0 0 6px;
+  font-size:14px;
+}
+
+.pay-list{
+  list-style:none;
+  margin:0;
+  padding:0 0 4px;
+  font-size:13px;
+}
+
+.pay-list li{
+  margin:2px 0;
+}
+
+.pay-number{
+  font-weight:600;
+}
+
+.contact{
+  margin-top:4px;
+}
+
+/* LIST HARGA — TITIK DUA RATA */
 .legend{
   list-style:none;
   margin:0;
@@ -141,7 +157,7 @@ input,select{
 }
 
 .legend li .left{
-  width:150px; /* biar titik dua sejajar */
+  width:150px;      /* atur biar titik dua lurus */
   display:inline-block;
 }
 
@@ -150,84 +166,25 @@ input,select{
   color:#e5e7eb;
 }
 
-/* METODE PEMBAYARAN */
-.payment-box{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:16px;
-  margin-top:16px;
-}
-
-.payment-box h3{
-  font-size:16px;
-  font-weight:700;
-  margin-bottom:10px;
-}
-
-.payment-list{
-  list-style:none;
-  padding:0;
-  margin:0;
-  font-size:14px;
-}
-
-.payment-list li{
+/* GALERI HERO */
+.hero-gallery{
+  margin-top:14px;
   display:flex;
-  align-items:center;
-  margin:4px 0;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
 }
 
-.payment-list .left{
-  width:120px;
-  font-weight:600;
-  color:#e5e7eb;
+.hero-gallery img{
+  width:80px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
 }
 
-.payment-list .right{
-  color:#fff;
-}
+/* Footer */
+.tiny{font-size:12px;color:var(--muted)}
+.warn{color:#fca5a5}
+.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
 
-.admin-contact{
-  margin-top:12px;
-  font-size:13px;
-  color:#cbd5e1;
-}
-
-.admin-contact b{
-  color:var(--accent2);
-}
-
-/* FOOTER */
-.tiny{
-  font-size:12px;
-  color:var(--muted);
-}
-
-.warn{
-  color:#fca5a5;
-}
-
-.foot{
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-  margin-top:20px;
-}
-
-/* GAMBAR SKIN HERO */
-.hero-img{
-  width:100%;
-  max-width:100px;
-  display:block;
-  margin:20px auto 0;
-  animation:floating 3s ease-in-out infinite;
-}
-
-/* Floating animation */
-@keyframes floating{
-  0%{ transform:translateY(0); }
-  50%{ transform:translateY(-12px); }
-  100%{ transform:translateY(0); }
-}
 
