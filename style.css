@@ -50,8 +50,15 @@ h1 span{
 .sub{color:var(--muted)}
 
 /* Layout */
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+@media(min-width:760px){
+  .grid{grid-template-columns:1fr 1fr}
+}
 
 /* Form */
 label{display:block;margin:10px 0 6px;color:#cbd5e1;font-size:14px}
@@ -65,7 +72,7 @@ input,select{
   padding:10px;
 }
 
-/* password show / hide */
+/* password toggle */
 .password-row{
   display:flex;
   gap:8px;
@@ -110,7 +117,7 @@ input,select{
   margin-top:12px;
   border-radius:12px;
   border:1px solid var(--line);
-  padding:10px;
+  padding:12px;
   background:#020617;
 }
 
@@ -127,7 +134,7 @@ input,select{
 }
 
 .pay-list li{
-  margin:2px 0;
+  margin:3px 0;
 }
 
 .pay-number{
@@ -136,9 +143,10 @@ input,select{
 
 .contact{
   margin-top:4px;
+  font-size:12px;
 }
 
-/* LIST HARGA — TITIK DUA RATA */
+/* LIST HARGA */
 .legend{
   list-style:none;
   margin:0;
@@ -157,7 +165,7 @@ input,select{
 }
 
 .legend li .left{
-  width:150px;      /* atur biar titik dua lurus */
+  width:150px;
   display:inline-block;
 }
 
@@ -166,24 +174,35 @@ input,select{
   color:#e5e7eb;
 }
 
-/* GALERI HERO */
+/* ==========================
+   HERO GALLERY (perbaikan ukuran)
+   ========================== */
 .hero-gallery{
   margin-top:14px;
+  padding-top:10px;
+  border-top:1px solid var(--line);
+
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
+  gap:12px;
   justify-content:center;
 }
 
 .hero-gallery img{
-  width:20px;
+  width:110px;             /* <<< atur ukuran di sini  */
   height:auto;
   object-fit:contain;
   filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
+  transition:0.2s ease-in-out;
+}
+
+.hero-gallery img:hover{
+  transform:scale(1.07);
 }
 
 /* Footer */
 .tiny{font-size:12px;color:var(--muted)}
 .warn{color:#fca5a5}
 .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
+
 
