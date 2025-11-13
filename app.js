@@ -73,7 +73,7 @@ const sendBtn     = document.getElementById("sendBtn");
 const statusMsg   = document.getElementById("statusMsg");
 
 // URL API Google Apps Script-mu
-const API_URL = "https://script.google.com/macros/s/AKfycbxHAMnnq_Db2Xd19yD4V-hFzqoYc0sivkgdWSXLbE6JpowqE0EoJ5lLY9sjQUZlqnD-OA/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbznzFvWLxdtZh81CLDC3SI5tWS10QMWr6ZqtiNjf8zJQOJQMgW5ycjE1VlJPRqQbtSf3Q/exec";
 
 // =======================
 //  HELPER
