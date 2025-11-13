@@ -189,7 +189,7 @@ input,select{
 }
 
 .hero-gallery img{
-  width:110px;             /* <<< atur ukuran di sini  */
+  width:20px;             /* <<< atur ukuran di sini  */
   height:auto;
   object-fit:contain;
   filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
