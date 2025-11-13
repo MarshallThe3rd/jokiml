@@ -5,35 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GHOST.JOKI — Mobile Legends Only</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrap">
-    <!-- HEADER -->
     <header class="hero box">
       <div class="badge">💎 GHOST.JOKI</div>
       <h1>Daftar Harga Joki <span>Mobile Legends</span></h1>
       <p class="sub">Naik Rank, Bukan Naik Emosi</p>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="grid">
-      <!-- KOLOM KIRI: FORM + PEMBAYARAN -->
-      <section class="box">
+      <!-- FORM -->
+      <section class="box col">
         <h2>📝 Order Joki</h2>
 
         <label>ID / Email Akun Moonton</label>
         <input id="moontonId" placeholder="contoh: email / ID MLBB" />
 
         <label>Password Akun Moonton</label>
-        <!-- kalau JS kamu sudah ada togglePass, bisa pakai div ini -->
-        <input id="moontonPass" type="password" placeholder="•••••••" />
+        <div class="password-row">
+          <input id="moontonPass" type="password" placeholder="•••••••" />
+          <button type="button" id="togglePass" class="toggle-pass" aria-label="Tampilkan / sembunyikan password">
+            👁
+          </button>
+        </div>
 
         <label>Rank Sekarang</label>
         <select id="fromRank"></select>
@@ -50,18 +50,16 @@
           ⏱️ Estimasi waktu: <b id="eta">-</b>
         </div>
 
-        <!-- METODE PEMBAYARAN -->
-        <div class="payment-box">
-          <h3>💰 Metode Pembayaran</h3>
-          <ul class="payment-list">
-            <li><span class="left">GoPay</span>     <span class="right">: 0895365386976</span></li>
-            <li><span class="left">ShopeePay</span> <span class="right">: 0895365386976</span></li>
-            <li><span class="left">OVO</span>       <span class="right">: 0895365386976</span></li>
+        <!-- BOX PEMBAYARAN -->
+        <div class="pay-box">
+          <h3 class="pay-title">💰 Metode Pembayaran</h3>
+          <ul class="pay-list">
+            <li>GoPay&nbsp;&nbsp;&nbsp;&nbsp;: <span class="pay-number">0812-3456-7890</span></li>
+            <li>OVO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="pay-number">0812-3456-7890</span></li>
+            <li>ShopeePay: <span class="pay-number">0812-3456-7890</span></li>
           </ul>
-
-          <p class="admin-contact">
-            🧾 Konfirmasi pembayaran / progress:
-            <b>0813-9876-5432</b> (WhatsApp Admin)
+          <p class="tiny contact">
+            📱 Konfirmasi pembayaran / progress: <b>0813-9876-5432 (WhatsApp Admin)</b>
           </p>
         </div>
 
@@ -69,28 +67,33 @@
         <p id="statusMsg" class="tiny" style="text-align:center; margin-top:10px;"></p>
       </section>
 
-      <!-- KOLOM KANAN: INFO HARGA + HERO -->
-      <aside class="box">
+      <!-- INFO HARGA + HERO -->
+      <aside class="box col">
         <h2>📊 Info Harga per Bintang</h2>
         <ul class="legend" id="legendList"></ul>
 
         <p class="tiny warn">⚠️ Harga final dikonfirmasi admin.</p>
         <p class="tiny">List dari Master V★1 hingga Mythic Immortal ★100+</p>
 
-        <!-- Gambar hero (sesuaikan path & nama file) -->
-        <img src="nana.png" alt="Hero Mobile Legends" class="hero-img">
+        <!-- GALERI HERO -->
+        <div class="hero-gallery">
+          <!-- pastikan nama file sama dengan yang kamu simpan di folder img/ -->
+          <img src="beatrix.png" alt="Beatrix" />
+          <img src="harith.png" alt="Harith" />
+          <img src="ling.png" alt="Ling" />
+          <img src="nana.png" alt="Nana" />
+        </div>
       </aside>
     </main>
 
-    <!-- FOOTER -->
     <footer class="foot">
       © <span id="year"></span> GHOST.JOKI — Managed by Anak-Anak MITI
     </footer>
   </div>
 
-  <!-- JS -->
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
