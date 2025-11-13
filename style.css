@@ -65,6 +65,27 @@ input,select{
   padding:10px;
 }
 
+/* password show / hide */
+.password-row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.password-row input{
+  flex:1;
+}
+
+.toggle-pass{
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#020617;
+  color:#e5e7eb;
+  padding:0 12px;
+  cursor:pointer;
+}
+
+/* tombol kirim */
 .btn{
   margin-top:12px;
   width:100%;
@@ -74,9 +95,48 @@ input,select{
   color:#0b0f17;
   font-weight:800;
   cursor:pointer;
+  border:none;
 }
 
-.calc{margin-top:12px;border:1px dashed var(--line);padding:10px;border-radius:12px}
+.calc{
+  margin-top:12px;
+  border:1px dashed var(--line);
+  padding:10px;
+  border-radius:12px;
+}
+
+/* BOX PEMBAYARAN */
+.pay-box{
+  margin-top:12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  padding:10px;
+  background:#020617;
+}
+
+.pay-title{
+  margin:0 0 6px;
+  font-size:14px;
+}
+
+.pay-list{
+  list-style:none;
+  margin:0;
+  padding:0 0 4px;
+  font-size:13px;
+}
+
+.pay-list li{
+  margin:2px 0;
+}
+
+.pay-number{
+  font-weight:600;
+}
+
+.contact{
+  margin-top:4px;
+}
 
 /* LIST HARGA — TITIK DUA RATA */
 .legend{
@@ -106,7 +166,24 @@ input,select{
   color:#e5e7eb;
 }
 
+/* GALERI HERO */
+.hero-gallery{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+}
+
+.hero-gallery img{
+  width:80px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
+}
+
 /* Footer */
 .tiny{font-size:12px;color:var(--muted)}
 .warn{color:#fca5a5}
 .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
+
