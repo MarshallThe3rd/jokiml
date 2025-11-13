@@ -1,3 +1,6 @@
+/* =======================
+   THEME VARIABLES
+   ======================= */
 :root{
   --bg:#0b0f17;
   --card:#0f172a;
@@ -8,21 +11,26 @@
   --accent2:#f59e0b;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 html,body{
-  margin:0;
   background:var(--bg);
   color:var(--txt);
   font-family:Inter,system-ui,Arial;
 }
 
+/* WRAPPER */
 .wrap{
-  max-width:880px;
+  max-width:900px;
   margin:0 auto;
   padding:20px;
 }
 
+/* BOX CARD */
 .box{
   background:var(--card);
   border:1px solid var(--line);
@@ -30,9 +38,19 @@ html,body{
   padding:16px;
 }
 
-/* Header */
-.hero{text-align:center;margin-bottom:16px}
-.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:700}
+/* HEADER */
+.hero{
+  text-align:center;
+  margin-bottom:16px;
+}
+
+.badge{
+  display:inline-block;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 12px;
+  font-weight:700;
+}
 
 h1{
   font-family:"Bebas Neue";
@@ -47,14 +65,30 @@ h1 span{
   color:transparent;
 }
 
-.sub{color:var(--muted)}
+.sub{
+  color:var(--muted);
+}
 
-/* Layout */
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+/* GRID LAYOUT */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
 
-/* Form */
-label{display:block;margin:10px 0 6px;color:#cbd5e1;font-size:14px}
+@media(min-width:760px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+/* FORM ELEMENTS */
+label{
+  display:block;
+  margin:10px 0 6px;
+  color:#cbd5e1;
+  font-size:14px;
+}
 
 input,select{
   width:100%;
@@ -63,9 +97,10 @@ input,select{
   border:1px solid var(--line);
   border-radius:12px;
   padding:10px;
+  font-size:14px;
 }
 
-/* password show / hide */
+/* PASSWORD ROW */
 .password-row{
   display:flex;
   gap:8px;
@@ -85,7 +120,16 @@ input,select{
   cursor:pointer;
 }
 
-/* tombol kirim */
+/* KALKULASI */
+.calc{
+  margin-top:12px;
+  border:1px dashed var(--line);
+  padding:10px;
+  border-radius:12px;
+  font-size:14px;
+}
+
+/* BUTTON */
 .btn{
   margin-top:12px;
   width:100%;
@@ -95,50 +139,10 @@ input,select{
   color:#0b0f17;
   font-weight:800;
   cursor:pointer;
-  border:none;
+  border: none;
 }
 
-.calc{
-  margin-top:12px;
-  border:1px dashed var(--line);
-  padding:10px;
-  border-radius:12px;
-}
-
-/* BOX PEMBAYARAN */
-.pay-box{
-  margin-top:12px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  padding:10px;
-  background:#020617;
-}
-
-.pay-title{
-  margin:0 0 6px;
-  font-size:14px;
-}
-
-.pay-list{
-  list-style:none;
-  margin:0;
-  padding:0 0 4px;
-  font-size:13px;
-}
-
-.pay-list li{
-  margin:2px 0;
-}
-
-.pay-number{
-  font-weight:600;
-}
-
-.contact{
-  margin-top:4px;
-}
-
-/* LIST HARGA — TITIK DUA RATA */
+/* LIST HARGA */
 .legend{
   list-style:none;
   margin:0;
@@ -157,7 +161,7 @@ input,select{
 }
 
 .legend li .left{
-  width:150px;      /* atur biar titik dua lurus */
+  width:150px; /* biar titik dua sejajar */
   display:inline-block;
 }
 
@@ -166,25 +170,99 @@ input,select{
   color:#e5e7eb;
 }
 
-/* GALERI HERO */
+/* METODE PEMBAYARAN */
+.payment-box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+  margin-top:16px;
+}
+
+.payment-box h3{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.payment-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  font-size:14px;
+}
+
+.payment-list li{
+  display:flex;
+  align-items:center;
+  margin:4px 0;
+}
+
+.payment-list .left{
+  width:120px;
+  font-weight:600;
+  color:#e5e7eb;
+}
+
+.payment-list .right{
+  color:#fff;
+}
+
+.admin-contact{
+  margin-top:12px;
+  font-size:13px;
+  color:#cbd5e1;
+}
+
+.admin-contact b{
+  color:var(--accent2);
+}
+
+/* FOOTER */
+.tiny{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.warn{
+  color:#fca5a5;
+}
+
+.foot{
+  text-align:center;
+  color:#muted;
+  font-size:12px;
+  margin-top:20px;
+}
+
+/* HERO GALLERY (4 GAMBAR FLOATING) */
 .hero-gallery{
   margin-top:14px;
+  padding-top:10px;
+  border-top:1px solid var(--line);
+
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
+  gap:12px;
   justify-content:center;
 }
 
 .hero-gallery img{
-  width:80px;
+  width:110px;
   height:auto;
   object-fit:contain;
   filter:drop-shadow(0 0 8px rgba(37,99,235,0.6));
+  animation: float 3s ease-in-out infinite alternate;
 }
 
-/* Footer */
-.tiny{font-size:12px;color:var(--muted)}
-.warn{color:#fca5a5}
-.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
+.hero-gallery img:nth-child(2){ animation-delay:.3s; }
+.hero-gallery img:nth-child(3){ animation-delay:.6s; }
+.hero-gallery img:nth-child(4){ animation-delay:.9s; }
+
+@keyframes float{
+  from{ transform:translateY(0); }
+  to{   transform:translateY(-10px); }
+}
+
 
 
